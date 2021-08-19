@@ -118,7 +118,7 @@ class CountingSortDemo {
             }
         }
 
-        drawArray(offsetY, "array", this.data.array);
+        drawArray("array", this.data.array);
         offsetY += gapY;
         drawArray("count", this.data.count);
         offsetY += gapY;
