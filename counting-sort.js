@@ -85,7 +85,7 @@ class CountingSortDemo {
         },
         statusText = []
     ) {
-        const offsetX = 100;
+        const offsetX = 150;
         let offsetY = 50;
         const rectWidth = 30;
         const rectHeight = 30;
@@ -96,7 +96,7 @@ class CountingSortDemo {
 
         function drawArray(label, array) {
             ctx.textAlign = 'left';
-            ctx.fillText(`${label}:`, 10, offsetY + rectHeight / 2 + 5);
+            ctx.fillText(getString(label), 10, offsetY + rectHeight / 2 + 5, offsetX - 10);
             ctx.textAlign = 'center';
             let j = 0;
             for (let i = 0; i < array.length; i++) {

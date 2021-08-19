@@ -45,7 +45,9 @@ let langStrings = {
             return `storing element '${item}' with index ${i} and key ${key} at index ${count} of sorted array`;
         },
         countingSortDone: "Done!",
-
+        array: "array",
+        count: "count",
+        sorted: "sorted",
     },
     "ar": {
         name: "العربية",
@@ -81,6 +83,9 @@ let langStrings = {
             return `تخزين العنصر '${item}' صاحب الفهرس ${i} والمفتاح ${key} في فهرس ${count} من المصفوفة المرتبة`;
         },
         countingSortDone: "تم!",
+        array: "المصفوفة المدخلة",
+        count: "مصفوفة الإحصاء",
+        sorted: "المصفوفة المرتبة",
     }
 }
 
