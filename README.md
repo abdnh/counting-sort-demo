@@ -1,12 +1,10 @@
 # Counting Sort Demo
 
 A JavaScript demo of [counting sort](https://en.wikipedia.org/wiki/Counting_sort)
-that I've written mainly as an exercise in visualizing algorithms and to accompany a blog post I'm currently working on.
+that I've written mainly as an exercise in visualizing algorithms and to accompany a [blog post](https://www.abdnh.net/counting-sort) I had been writing.
 
 ## TODO
 - tidy up the code
-- add link to blog post when it's finished
-- add option to switch display language to Arabic since the blog post is in Arabic
 
 ## Credit
 
