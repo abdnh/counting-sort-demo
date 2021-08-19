@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<meta charset="utf-8">
+	<title>Counting Sort Demo</title>
+	<style>
+		#controls div {
+			margin-bottom: 1em;
+		}
+
+		#speed-control {
+			display: inline-flex;
+			flex-direction: column;
+			text-align: center;
+		}
+
+		#sort-data-control label {
+			display: inline-block;
+			min-width: 300px;
+		}
+
+		#sort-data-control div > * {
+			margin: 0.5em;
+		}
+
+		#sort-data-control input[type=text] {
+			width: 600px;
+		}
+	</style>
+</head>
+
+<body>
+	<div id="controls">
+		<button id="step-back">Step Back</button>
+		<button id="step-forward">Step Forward</button>
+		<button id="resume-button">Resume</button>
+		<button id="play-button">Play</button>
+		<div id="speed-control">
+			<input type="range" min="100" max="1500" id="animation-speed" value="500" step="100">
+			<label for="speed">Animation Speed</label>
+		</div>
+		<div id="canvas-controls">
+			<label for="canvas-width">Width:</label>
+			<input type="number" id="canvas-width">
+			<label for="canvas-height">Height:</label>
+			<input type="number" id="canvas-height">
+			<button id="canvas-dims-btn">Change Canvas Size</button>
+		</div>
+		<div id="sort-data-control">
+			<p>Select the type of data you want to sort:</p>
+			<div>
+				<input type="radio" id="int-input-radio" name="data-type-radio" checked>
+				<label for="int-input-radio">Integers (delimited by spaces)</label>
+				<input type="text" id="int-input" name="data-type">
+			</div>
+			<div>
+				<input type="radio" id="char-input-radio" name="data-type-radio">
+				<label for="char-input-radio">A string of characters</label>
+				<input type="text" id="char-input" name="data-type">
+			</div>
+		</div>
+	</div>
+
+	<canvas id="canvas" width="1000" height="500"></canvas>
+
+	<script src="counting-sort.js"></script>
+	<script src="demo.js"></script>
+</body>
+
+</html>
