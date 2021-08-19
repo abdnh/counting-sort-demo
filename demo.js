@@ -8,7 +8,7 @@ const canvas = document.getElementById("canvas");
 canvas.width = document.documentElement.clientWidth - canvas.offsetLeft;
 canvas.height = document.documentElement.clientHeight - canvas.offsetTop;
 const canvasWidthInput = document.getElementById("canvas-width");
-let canvasHeightInput = document.getElementById("canvas-height");
+const canvasHeightInput = document.getElementById("canvas-height");
 canvasWidthInput.value = canvas.width;
 canvasHeightInput.value = canvas.height;
 const ctx = canvas.getContext("2d");
@@ -71,7 +71,7 @@ animationControl.addEventListener('change', () => {
 
 function updatePlayState(state) {
     playing = state;
-    resumeButton.textContent = playing ? "Pause" : "Resume";
+    resumeButton.textContent = playing ? getString("pause") : getString("resume");
 }
 
 resumeButton.addEventListener("click", () => {

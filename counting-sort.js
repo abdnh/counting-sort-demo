@@ -125,15 +125,18 @@ class CountingSortDemo {
         drawArray("sorted", this.data.sorted);
 
         offsetY += gapY;
+        ctx.save();
         ctx.textAlign = 'left';
+        ctx.fillStyle = 'green';
         for (let text of statusText) {
             let y = offsetY + rectHeight / 2 + 5;
             if (y >= ctx.canvas.height) {
-                this.warning = "Canvas is not high enough to draw all data - Adjust its height from the controls to the left";
+                this.warning = getString("canvasHeightWarning");
             }
             ctx.fillText(text, 10, y);
             offsetY += gapY / 2;
         }
+        ctx.restore();
     }
 
     sort() {
@@ -163,10 +166,11 @@ class CountingSortDemo {
         }
         let range = max - offset + 1;
 
+        let offsetText = getString("countingSortOffset", offset);
+        let rangeText = getString("countingSortRange", range);
         this.registerStep(new CountingSortData(offset, range, array), data => {
             this.draw({}, [
-                `offset = ${offset}`,
-                `range = ${range}`,
+                offsetText, rangeText
             ]);
         });
 
@@ -177,20 +181,21 @@ class CountingSortDemo {
         for (let [i, item] of array.entries()) {
             let key = getKey(item) - offset;
             count[key]++;
+            let statusText = getString("incrementCount", key);
             this.registerStep(new CountingSortData(offset, range, array, sorted, count), data => {
                 this.draw({
                     array: i,
                     count: key,
                 },
                     [
-                        `incrementing count[${key}]`
+                        statusText
                     ]);
             });
         }
 
         for (let r = 0; r < range - 1; r++) {
             count[r + 1] += count[r];
-            const statusText = `calculating positions of elements with key ${r + 1}`;
+            const statusText = getString("countingSortCalcPositions", r + 1);
             this.registerStep(new CountingSortData(offset, range, array, sorted, count), data => {
                 this.draw({
                     count: r + 1,
@@ -205,7 +210,7 @@ class CountingSortDemo {
             let key = getKey(item) - offset;
             count[key]--;
             sorted[count[key]] = item;
-            let statusText = `storing element '${item}' with index ${i} and key ${key} at index ${count[key]} of sorted array`;
+            let statusText = getString("countingSortStoringSorted", i, item, key, count[key]);
             this.registerStep(new CountingSortData(offset, range, array, sorted, count), data => {
                 this.draw({
                     array: i,
@@ -219,7 +224,10 @@ class CountingSortDemo {
         }
 
         this.registerStep(new CountingSortData(offset, range, array, sorted, count), data => {
-            this.draw();
+            this.draw(
+                {},
+                [getString("countingSortDone")]
+            );
         });
 
         return sorted;

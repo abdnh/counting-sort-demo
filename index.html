@@ -28,37 +28,47 @@
 		#sort-data-control input[type=text] {
 			width: 600px;
 		}
+
+		#lang-switcher {
+			float: right;
+		}
+
 	</style>
 </head>
 
 <body>
 	<div id="controls">
+		<div id="lang-switcher">
+			<label for="lang-select" id="lang-select-label">Switch Language:</label>
+			<select name="langs" id="lang-select">
+			</select>
+		</div>
 		<button id="step-back">Step Back</button>
 		<button id="step-forward">Step Forward</button>
 		<button id="resume-button">Resume</button>
 		<button id="play-button">Play</button>
 		<div id="speed-control">
 			<input type="range" min="100" max="1500" id="animation-speed" value="500" step="100">
-			<label for="speed">Animation Speed</label>
+			<label for="speed" id="speed-label">Animation Speed</label>
 		</div>
 		<div id="canvas-controls">
-			<label for="canvas-width">Width:</label>
+			<label for="canvas-width" id="canvas-width-label">Width:</label>
 			<input type="number" id="canvas-width">
-			<label for="canvas-height">Height:</label>
+			<label for="canvas-height" id="canvas-height-label">Height:</label>
 			<input type="number" id="canvas-height">
 			<button id="canvas-dims-btn">Change Canvas Size</button>
 			<span id="warning" style="display: none; color: red;"></span>
 		</div>
 		<div id="sort-data-control">
-			<p>Select the type of data you want to sort:</p>
+			<p id="select-data-type">Select the type of data you want to sort:</p>
 			<div>
 				<input type="radio" id="int-input-radio" name="data-type-radio" checked>
-				<label for="int-input-radio">Integers (delimited by spaces)</label>
+				<label for="int-input-radio" id="int-input-label">Integers (delimited by spaces)</label>
 				<input type="text" id="int-input" name="data-type">
 			</div>
 			<div>
 				<input type="radio" id="char-input-radio" name="data-type-radio">
-				<label for="char-input-radio">A string of characters</label>
+				<label for="char-input-radio" id="char-input-label">A string of characters</label>
 				<input type="text" id="char-input" name="data-type">
 			</div>
 		</div>
@@ -68,6 +78,7 @@
 
 	<script src="counting-sort.js"></script>
 	<script src="demo.js"></script>
+	<script src="lang.js"></script>
 </body>
 
 </html>
