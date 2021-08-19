@@ -127,7 +127,11 @@ class CountingSortDemo {
         offsetY += gapY;
         ctx.textAlign = 'left';
         for (let text of statusText) {
-            ctx.fillText(text, 10, offsetY + rectHeight / 2 + 5);
+            let y = offsetY + rectHeight / 2 + 5;
+            if (y >= ctx.canvas.height) {
+                this.warning = "Canvas is not high enough to draw all data - Adjust its height from the controls to the left";
+            }
+            ctx.fillText(text, 10, y);
             offsetY += gapY / 2;
         }
     }

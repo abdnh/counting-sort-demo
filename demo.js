@@ -18,6 +18,17 @@ let playing = false;
 let demo = null;
 let intervalID;
 
+const warning = document.getElementById("warning");
+
+function showWarning() {
+    if (demo.warning) {
+        warning.style.display = 'inline';
+        warning.textContent = demo.warning;
+    }
+    else {
+        warning.style.display = 'none';
+    }
+}
 
 function updateInputsDisabledState() {
     for (let radio of radios) {
@@ -110,9 +121,11 @@ function runDemo(singleStepDirection) {
             demo.undo();
         }
         demo.paused = pausedState;
+        showWarning();
     } else {
         intervalID = setInterval(() => {
             demo.next();
+            showWarning();
             if (demo.finished()) {
                 updatePlayState(false);
                 clearInterval(intervalID);
