@@ -7,6 +7,8 @@ const canvasHeightLabel = document.getElementById("canvas-height-label");
 const langSelectLabel = document.getElementById("lang-select-label");
 const langSelect = document.getElementById("lang-select");
 const langSwitcher = document.getElementById("lang-switcher");
+const description = document.getElementById("description");
+const title = document.getElementsByTagName("title")[0];
 
 let currentLang = "en";
 
@@ -48,6 +50,8 @@ let langStrings = {
         array: "array",
         count: "count",
         sorted: "sorted",
+        description: 'A demo of <a href="https://en.wikipedia.org/wiki/Counting_sort">counting sort</a>',
+        title: "Counting Sort Demo",
     },
     "ar": {
         name: "العربية",
@@ -86,6 +90,8 @@ let langStrings = {
         array: "المصفوفة المدخلة",
         count: "مصفوفة الإحصاء",
         sorted: "المصفوفة المرتبة",
+        description: 'استعراض لخوارزمية <a href="https://www.abdnh.net/counting-sort">الترتيب بالعد</a>',
+        title: "استعراض لخوارزمية الترتيب بالعد",
     }
 }
 
@@ -108,6 +114,8 @@ function setLang(lang) {
     canvasHeightLabel.textContent = strings.height;
     langSelectLabel.textContent = strings.langSelectLabel;
     langSwitcher.style.float = strings.langSwitcherFloat;
+    description.innerHTML = strings.description;
+    title.textContent = strings.title;
 }
 
 function getString(name) {
