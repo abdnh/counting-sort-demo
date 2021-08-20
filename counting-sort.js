@@ -24,7 +24,9 @@ class CountingSortDemo {
     constructor(array, ctx) {
         this.paused = false;
         this.setCanvasCtx(ctx);
-        this.reset(array);
+        this.data = new CountingSortData(0, 0, array);
+        this.steps = new Array();
+        this.currentStep = 0;
         this.sort();
     }
 
@@ -57,12 +59,6 @@ class CountingSortDemo {
         } else {
             this.currentStep = 0;
         }
-    }
-
-    reset(array) {
-        this.data = new CountingSortData(0, 0, array);
-        this.steps = new Array();
-        this.currentStep = 0;
     }
 
     pause() {
