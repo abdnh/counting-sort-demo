@@ -229,7 +229,5 @@ class CountingSortDemo {
                 [getString("countingSortDone")]
             );
         });
-
-        return sorted;
     }
 }
