@@ -148,10 +148,10 @@ function populateLangSelector() {
         if (currentLang === lang) {
             option.selected = true;
         }
-        option.addEventListener("click", () => {
-            setLang(option.value);
-        });
     }
+    langSelect.addEventListener("input", () => {
+        setLang(langSelect.value);
+    });
 }
 
 detectLang();
