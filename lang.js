@@ -116,6 +116,7 @@ function setLang(lang) {
     langSwitcher.style.float = strings.langSwitcherFloat;
     description.innerHTML = strings.description;
     title.textContent = strings.title;
+    setCanvasDimensions(document.body.clientWidth, document.body.clientHeight);
 }
 
 function getString(name) {

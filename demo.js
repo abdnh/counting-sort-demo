@@ -5,8 +5,7 @@ const stepBackButton = document.getElementById("step-back");
 const stepForwardButton = document.getElementById("step-forward");
 const canvasDimensionsButton = document.getElementById("canvas-dims-btn");
 const canvas = document.getElementById("canvas");
-canvas.width = document.documentElement.clientWidth - canvas.offsetLeft;
-canvas.height = document.documentElement.clientHeight - canvas.offsetTop;
+setCanvasDimensions(document.body.clientWidth, document.body.clientHeight);
 const canvasWidthInput = document.getElementById("canvas-width");
 const canvasHeightInput = document.getElementById("canvas-height");
 canvasWidthInput.value = canvas.width;
@@ -28,6 +27,11 @@ function showWarning() {
     else {
         warning.style.display = 'none';
     }
+}
+
+function setCanvasDimensions(width, height) {
+    canvas.width = width - canvas.offsetLeft;
+    canvas.height = height - canvas.offsetTop;
 }
 
 function updateInputsDisabledState() {
